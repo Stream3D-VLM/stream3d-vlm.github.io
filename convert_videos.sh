@@ -1,0 +1,4 @@
+# ffmpeg -i ./raw_video/demo_paper_video/scene0426_00/scene0426_00_qa_vertical_mixed_modern_light_pc_speed1.0.mp4 -vcodec libx264 -pix_fmt yuv420p -crf 25 ./images/backward_scene0426_00.mp4
+# ffmpeg -i ./raw_video/demo_paper_video/scene0200_00/scene0200_00_qa_vertical_mixed_modern_light_pc_speed1.0.mp4 -vcodec libx264 -pix_fmt yuv420p -crf 25 ./images/realtime_scene0200_00.mp4
+# ffmpeg -i ./raw_video/demo_paper_video/scene0599_02/scene0599_02_qa_vertical_mixed_modern_light_pc_speed1.0.mp4 -vcodec libx264 -pix_fmt yuv420p -crf 25 ./images/forward_scene0599_02.mp4
+ffmpeg -i ./demo_video.mp4 -vcodec libx264 -pix_fmt yuv420p -crf 25 ./images/project_video.mp4
