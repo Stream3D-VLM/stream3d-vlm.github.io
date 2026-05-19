@@ -336,21 +336,23 @@
             <a href="https://www.kelei.site/" target="_blank">Lei Ke<sup>2</sup></a>,
             <a href="https://cyrilsterling.github.io/" target="_blank">Boqiang Zhang<sup>2</sup></a>,
             <a href="https://w-ted.github.io/" target="_blank">Yuxin Wang<sup>2,3</sup></a>,
-            <a href="https://person.zju.edu.cn/jkzhu" target="_blank">Jianke Zhu<sup>1&dagger;</sup></a>,
+            <a href="https://person.zju.edu.cn/jkzhu" target="_blank">Jianke Zhu<sup>1,4</sup></a>,
             <a href="https://dongyu888.github.io/" target="_blank">Dong Yu<sup>2</sup></a>
         </div>
         
         <div class="affiliation">
-            <span style="margin-right: 15px;"><sup>1</sup>ZJU</span>
+            <span style="margin-right: 15px;"><sup>1</sup>Zhejiang University</span>
             <span style="margin-right: 15px;"><sup>2</sup>Tencent AI Lab</span>
             <span style="margin-right: 15px;"><sup>3</sup>HKUST</span>
+            <span style="margin-right: 15px;"><sup>3</sup>Shenzhen Loop Area Institute</span>
         </div>
 
         <div class="link-buttons">
-            <a href="" class="btn-pill"><i class="fas fa-file-pdf"></i> Paper</a>
-            <a href="https://github.com/hanxunyu/VisionTrim" class="btn-pill"><i class="fab fa-github"></i> Code</a>
-            <a href="" class="btn-pill"><i class="fas fa-cube"></i> Model</a>
-            <a href="" class="btn-pill"><i class="fas fa-database"></i> Dataset & Benchmark</a>
+            <a href="xxxxxx" class="btn-pill"><i class="fas fa-file-pdf"></i> Paper</a>
+            <a href="https://github.com/hanxunyu/Stream3D-VLM" class="btn-pill"><i class="fab fa-github"></i> Code</a>
+            <a href="https://huggingface.co/JonnyYu828/Stream3D-VLM-8B" class="btn-pill"><i class="fas fa-cube"></i> Model</a>
+            <a href="https://huggingface.co/datasets/JonnyYu828/Stream3D-1M_Dataset" class="btn-pill"><i class="fas fa-database"></i> Dataset</a>
+            <a href="https://huggingface.co/datasets/JonnyYu828/Stream3D-Bench" class="btn-pill"><i class="fas fa-trophy"></i> Benchmark</a>
         </div>
     </section>
 
@@ -425,6 +427,23 @@
                 </p>
             </div>
             
+            <div class="sub-section-title" style="margin-bottom: 25px;">Statistics of Stream3D-1M Dataset</div>
+            <div style="margin-bottom: 50px; text-align: center;">
+                <img src="./images/s2-dataset_distribution_v2.png" alt="Data Pipeline" style="width: 100%; max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <p style="margin-top: 10px; color: #4b5563; font-size: 0.95em; text-align: justify;">
+                    <strong>Statistical Distribution of Stream3D-1M Dataset.</strong> The figure visualizes the composition of the training set (over 1M samples)
+across three key dimensions: <strong>(a) Data Source</strong>, highlighting that ScanNet++ contributes the plurality of QA pairs (43.5%) due to its dense
+annotations; <strong>(b) Task Category</strong>, dominated by Camera Motion tasks (50.1%) which serve as the foundation for spatial tracking; and <strong>(c) Interaction Mode</strong>, demonstrating a strong emphasis on long-term memory (Backward, 46.3%) and active monitoring (Forward, 33.9%).
+                </p>
+            </div>
+
+            <div style="margin-bottom: 50px; text-align: center;">
+                <p style="margin-top: 10px; color: #4b5563; font-size: 0.95em; text-align: center;">
+                    <strong>Detailed statistics of Stream3D-1M Dataset composition.</strong>
+                </p>
+                <img src="./images/table_9_dataset_statistics.png" alt="Data Pipeline" style="width: 45%; max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            </div>
+
             <div class="sub-section-title" style="margin-bottom: 25px;">Statistics of Stream3D-Bench</div>
             <div style="margin-bottom: 50px; text-align: center;">
                 <img src="./images/s2-benchmark_distribution_v2.png" alt="Data Pipeline" style="width: 100%; max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
@@ -460,7 +479,7 @@
             <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; background: #000;">
                 <video width="100%" autoplay muted loop playsinline controls style="display: block;">
                 <!-- <video width="100%" autoplay loop playsinline controls style="display: block;"> -->
-                    <source src="images/forward_scene0599_02.mp4" type="video/mp4">
+                    <source src="images/forward_scene0599_02_converted.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -473,7 +492,7 @@
             <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; background: #000;">
                 <video width="100%" autoplay muted loop playsinline controls style="display: block;">
                 <!-- <video width="100%" autoplay loop playsinline controls style="display: block;"> -->
-                    <source src="images/realtime_scene0200_00.mp4" type="video/mp4">
+                    <source src="images/realtime_scene0200_00_converted.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -486,7 +505,7 @@
             <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; background: #000;">
                 <video width="100%" autoplay muted loop playsinline controls style="display: block;">
                 <!-- <video width="100%" autoplay loop playsinline controls style="display: block;"> -->
-                    <source src="images/backward_scene0426_00.mp4" type="video/mp4">
+                    <source src="images/backward_scene0426_00_converted.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -549,7 +568,7 @@
             
             <!-- 提示文字 -->
             <p style="text-align: center; color: #9ca3af; font-size: 0.85em; margin-top: 10px;">
-                If you find our work useful in your research, please consider citing our paper and giving us a ⭐ on GitHub..
+                If you find our work useful in your research, please consider citing our paper and giving us a ⭐ on GitHub. Thank you!
             </p>
         </div>
 
