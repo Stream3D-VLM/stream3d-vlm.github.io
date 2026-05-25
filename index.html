@@ -248,6 +248,50 @@
         .animate-text { transition: opacity 0.2s; }
         .changing { opacity: 0; }
 
+        /* ========================================= */
+        /* TASK TAXONOMY TABS                        */
+        /* ========================================= */
+        .taxonomy-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 25px; flex-wrap: wrap; }
+        .taxonomy-tab-btn {
+            padding: 10px 22px; border-radius: 99px; border: 2px solid #e5e7eb;
+            background: #fff; color: #6b7280; font-weight: 700; font-size: 1.0rem;
+            cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; gap: 8px;
+        }
+        .taxonomy-tab-btn:hover { border-color: #d1d5db; color: #374151; background: #f9fafb; }
+        .taxonomy-tab-btn.active-backward { background: #eff6ff; border-color: #3b82f6; color: #1d4ed8; }
+        .taxonomy-tab-btn.active-realtime { background: #f0fdf4; border-color: #22c55e; color: #15803d; }
+        .taxonomy-tab-btn.active-forward { background: #fef3c7; border-color: #f59e0b; color: #b45309; }
+
+        .taxonomy-panel { display: none; animation: fadeInPanel 0.3s ease; }
+        .taxonomy-panel.active { display: block; }
+        @keyframes fadeInPanel { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .taxonomy-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .taxonomy-card {
+            background: #fff; border-radius: 12px; border: 1px solid #e5e7eb;
+            padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 4px solid transparent; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .taxonomy-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+        .taxonomy-card.card-ego { border-left-color: #3b82f6; }
+        .taxonomy-card.card-env { border-left-color: #ef4444; }
+        .taxonomy-card.card-ocr { border-left-color: #22c55e; }
+        .taxonomy-card.card-chrono { border-left-color: #8b5cf6; }
+        .taxonomy-card.card-attr { border-left-color: #f59e0b; }
+
+        .taxonomy-card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .taxonomy-card-title .card-icon { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #fff; }
+        .icon-ego { background: #3b82f6; }
+        .icon-env { background: #ef4444; }
+        .icon-ocr { background: #22c55e; }
+        .icon-chrono { background: #8b5cf6; }
+        .icon-attr { background: #f59e0b; }
+
+        .taxonomy-card ul { margin: 0; padding-left: 18px; list-style: disc; }
+        .taxonomy-card ul li { font-size: 0.85rem; color: #4b5563; line-height: 1.7; }
+
+        .taxonomy-mode-desc { text-align: center; color: #6b7280; font-size: 1.0rem; margin-bottom: 20px; font-style: italic; }
+
         /* [NEW] Prominent Instruction Text Style */
         .instruction-highlight {
             margin-top: 10px;
@@ -267,6 +311,69 @@
         }
         .instruction-highlight i {
             color: #3b82f6;
+        }
+
+        /* ========================================= */
+        /* STATS ROW                                 */
+        /* ========================================= */
+        .stats-row {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+            background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px;
+            overflow: hidden; max-width: 700px; margin: 0 auto 30px;
+        }
+        .stat { padding: 1.4rem 1rem; text-align: center; border-right: 1px solid #e5e7eb; }
+        .stat:last-child { border-right: none; }
+        .stat-v {
+            display: block; font-family: 'Inter', sans-serif; font-size: 2.2rem;
+            font-weight: 800; color: #2563eb; line-height: 1.1;
+        }
+        .stat-l {
+            display: block; font-size: 0.82rem; letter-spacing: 0.05em;
+            text-transform: uppercase; color: #6b7280; margin-top: 4px; font-weight: 600;
+        }
+        @media (max-width: 640px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .stat { border-right: none; border-bottom: 1px solid #e5e7eb; }
+            .stat:last-child { border-bottom: none; }
+        }
+
+        /* ========================================= */
+        /* SUBTASK QA DISPLAY                        */
+        /* ========================================= */
+        .subtask-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .subtask-btn {
+            display: inline-block; padding: 5px 12px; border-radius: 6px;
+            border: 1px solid #e5e7eb; background: #f9fafb; color: #4b5563;
+            font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+        }
+        .subtask-btn:hover { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+        .subtask-btn.active { background: #dbeafe; border-color: #3b82f6; color: #1d4ed8; }
+
+        .subtask-detail {
+            display: none; margin-top: 20px; padding: 20px;
+            background: #fafbfc; border: 1px solid #e5e7eb; border-radius: 12px;
+            animation: fadeInPanel 0.3s ease;
+        }
+        .subtask-detail.active { display: block; }
+
+        .subtask-detail-grid {
+            display: flex; justify-content: center;
+        }
+
+        .subtask-media { border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; background: #f3f4f6; min-height: 180px; display: flex; align-items: center; justify-content: center; }
+        .subtask-media img, .subtask-media video { width: 100%; height: auto; display: block; object-fit: contain; }
+        .subtask-media .placeholder-text { color: #9ca3af; font-size: 0.85rem; font-style: italic; }
+
+        .subtask-qa { padding: 10px; }
+        .subtask-qa .qa-label {
+            font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;
+        }
+        .subtask-qa .qa-label.q-label { color: #2563eb; }
+        .subtask-qa .qa-label.a-label { color: #15803d; }
+        .subtask-qa .qa-text {
+            font-size: 1.0rem; line-height: 1.5; color: #374151;
+            margin-bottom: 12px; padding: 8px 12px;
+            background: #fff; border-radius: 8px; border: 1px solid #e5e7eb;
         }
     </style>
 </head>
@@ -306,7 +413,7 @@
             <a href="#module-benchmark" class="nav-link">Dataset and Benchmark</a>
 
             <!-- 6. Demo: 对应 Demo 区域 -->
-            <a href="#module-demo" class="nav-link">Demo</a>
+            <a href="#module-temporal-modes" class="nav-link">Demo</a>
 
             <!-- 7. Experiments: 对应底部的 Experiments -->
             <a href="#experiments" class="nav-link">Experiments</a>
@@ -426,7 +533,202 @@
                     construct a large-scale spatio-temporal 3D QA dataset and the Stream3D-Bench for evaluating online 3D spatial understanding.
                 </p>
             </div>
-            
+
+        </div>
+        
+        <!-- 增加底部间距 -->
+        <div style="margin-bottom: 40px;"></div>
+
+    </section>
+
+    <!-- Demo -->
+    <section id="module-demo" style="margin-top: 60px; margin-bottom: 60px;">
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat"><span class="stat-v">5</span><span class="stat-l">Cognitive Competencies</span></div>
+            <div class="stat"><span class="stat-v">3</span><span class="stat-l">Temporal Modes</span></div>
+            <div class="stat"><span class="stat-v">29</span><span class="stat-l">Subtasks</span></div>
+        </div>
+
+        <!-- Task Taxonomy (placed first) -->
+        <div style="max-width: 85%; margin-left: auto; margin-right: auto;">
+            <div class="global-section-title" style="margin-bottom: 10px;">Task Taxonomy</div>
+            <p style="text-align: center; color: #6b7280; font-size: 1.0rem; margin-bottom: 25px;">
+                Our benchmark spans <strong>5 cognitive competencies</strong> across <strong>3 temporal interaction modes</strong>, 
+                covering diverse spatio-temporal 3D understanding tasks.
+            </p>
+
+            <!-- Tab Buttons -->
+            <div class="taxonomy-tabs">
+                <button class="taxonomy-tab-btn active-backward" data-tab="backward" onclick="switchTaxonomyTab('backward')">
+                    <i class="fas fa-history"></i> Backward Tracing
+                </button>
+                <button class="taxonomy-tab-btn" data-tab="realtime" onclick="switchTaxonomyTab('realtime')">
+                    <i class="fas fa-eye"></i> Realtime Perception
+                </button>
+                <button class="taxonomy-tab-btn" data-tab="forward" onclick="switchTaxonomyTab('forward')">
+                    <i class="fas fa-forward"></i> Forward Response
+                </button>
+            </div>
+
+            <!-- Panel: Backward Tracing -->
+            <div class="taxonomy-panel active" id="panel-backward">
+                <p class="taxonomy-mode-desc">🔍 Tasks that require recalling and reasoning about past observations from the video stream.</p>
+                <div class="taxonomy-cards">
+                    <div class="taxonomy-card card-ego">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-ego"><i class="fas fa-route"></i></span>
+                            Ego-Motion Estimation
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="backward_ego_direction" onclick="showSubtaskDetail(this)">Direction</span>
+                            <span class="subtask-btn" data-subtask="backward_ego_path" onclick="showSubtaskDetail(this)">Path</span>
+                            <span class="subtask-btn" data-subtask="backward_ego_rotation" onclick="showSubtaskDetail(this)">Rotation</span>
+                            <span class="subtask-btn" data-subtask="backward_ego_displacement" onclick="showSubtaskDetail(this)">Displacement</span>
+                            <span class="subtask-btn" data-subtask="backward_ego_comprehensive" onclick="showSubtaskDetail(this)">Comprehensive</span>
+                        </div>
+                    </div>
+                    <div class="taxonomy-card card-env">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-env"><i class="fas fa-ruler-combined"></i></span>
+                            Environment Measurement
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="backward_env_room_area" onclick="showSubtaskDetail(this)">Room Area</span>
+                        </div>
+                    </div>
+                    <div class="taxonomy-card card-ocr">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-ocr"><i class="fas fa-arrows-alt"></i></span>
+                            Object-Camera Relationship
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="backward_ocr_distance" onclick="showSubtaskDetail(this)">Distance</span>
+                            <span class="subtask-btn" data-subtask="backward_ocr_direction" onclick="showSubtaskDetail(this)">Direction</span>
+                            <span class="subtask-btn" data-subtask="backward_ocr_location" onclick="showSubtaskDetail(this)">Location</span>
+                        </div>
+                    </div>
+                    <div class="taxonomy-card card-chrono">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-chrono"><i class="fas fa-clock"></i></span>
+                            Object Chronology
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="backward_chrono_counting" onclick="showSubtaskDetail(this)">Counting</span>
+                            <span class="subtask-btn" data-subtask="backward_chrono_time" onclick="showSubtaskDetail(this)">Time</span>
+                            <span class="subtask-btn" data-subtask="backward_chrono_order" onclick="showSubtaskDetail(this)">Order</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Shared detail area for Backward -->
+                <div class="subtask-detail" id="detail-backward">
+                    <div class="subtask-detail-grid">
+                        <div class="subtask-media" id="detail-backward-media">
+                            <span class="placeholder-text">Select a subtask above to view example</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel: Realtime Perception -->
+            <div class="taxonomy-panel" id="panel-realtime">
+                <p class="taxonomy-mode-desc">🔍 Tasks that require understanding the current frame and immediate surroundings.</p>
+                <div class="taxonomy-cards">
+                    <div class="taxonomy-card card-env">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-env"><i class="fas fa-ruler-combined"></i></span>
+                            Environment Measurement
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="realtime_env_object_size" onclick="showSubtaskDetail(this)">Object Size</span>
+                            <span class="subtask-btn" data-subtask="realtime_env_inter_object_distance" onclick="showSubtaskDetail(this)">Inter-Object Distance</span>
+                        </div>
+                    </div>
+                    <div class="taxonomy-card card-ocr">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-ocr"><i class="fas fa-arrows-alt"></i></span>
+                            Object-Camera Relationship
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="realtime_ocr_absolute_distance" onclick="showSubtaskDetail(this)">Absolute Distance</span>
+                            <span class="subtask-btn" data-subtask="realtime_ocr_relative_distance" onclick="showSubtaskDetail(this)">Relative Distance</span>
+                        </div>
+                    </div>
+                    <div class="taxonomy-card card-attr">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-attr"><i class="fas fa-tags"></i></span>
+                            Object Attributes
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="realtime_attr_property" onclick="showSubtaskDetail(this)">Object Property</span>
+                            <span class="subtask-btn" data-subtask="realtime_attr_position" onclick="showSubtaskDetail(this)">Object Position</span>
+                            <span class="subtask-btn" data-subtask="realtime_attr_recognition" onclick="showSubtaskDetail(this)">Object Recognition</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Shared detail area for Realtime -->
+                <div class="subtask-detail" id="detail-realtime">
+                    <div class="subtask-detail-grid">
+                        <div class="subtask-media" id="detail-realtime-media">
+                            <span class="placeholder-text">Select a subtask above to view example</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel: Forward Response -->
+            <div class="taxonomy-panel" id="panel-forward">
+                <p class="taxonomy-mode-desc">🔍 Tasks that require monitoring future events in the stream.</p>
+                <div class="taxonomy-cards">
+                    <div class="taxonomy-card card-ego">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-ego"><i class="fas fa-route"></i></span>
+                            Ego-Motion Estimation
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="forward_ego_direction" onclick="showSubtaskDetail(this)">Direction</span>
+                            <span class="subtask-btn" data-subtask="forward_ego_path" onclick="showSubtaskDetail(this)">Path</span>
+                            <span class="subtask-btn" data-subtask="forward_ego_rotation" onclick="showSubtaskDetail(this)">Rotation</span>
+                            <span class="subtask-btn" data-subtask="forward_ego_displacement" onclick="showSubtaskDetail(this)">Displacement</span>
+                            <span class="subtask-btn" data-subtask="forward_ego_comprehensive" onclick="showSubtaskDetail(this)">Comprehensive</span>
+                        </div>
+                    </div>
+                    <div class="taxonomy-card card-env">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-env"><i class="fas fa-ruler-combined"></i></span>
+                            Environment Measurement
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="forward_env_room_area" onclick="showSubtaskDetail(this)">Room Area</span>
+                        </div>
+                    </div>
+                    <div class="taxonomy-card card-ocr">
+                        <div class="taxonomy-card-title">
+                            <span class="card-icon icon-ocr"><i class="fas fa-arrows-alt"></i></span>
+                            Object-Camera Relationship
+                        </div>
+                        <div class="subtask-btns">
+                            <span class="subtask-btn" data-subtask="forward_ocr_distance" onclick="showSubtaskDetail(this)">Distance</span>
+                            <span class="subtask-btn" data-subtask="forward_ocr_location" onclick="showSubtaskDetail(this)">Location</span>
+                            <span class="subtask-btn" data-subtask="forward_ocr_direction" onclick="showSubtaskDetail(this)">Direction</span>
+                            <span class="subtask-btn" data-subtask="forward_ocr_finding" onclick="showSubtaskDetail(this)">Finding</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Shared detail area for Forward -->
+                <div class="subtask-detail" id="detail-forward">
+                    <div class="subtask-detail-grid">
+                        <div class="subtask-media" id="detail-forward-media">
+                            <span class="placeholder-text">Select a subtask above to view example</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics of Stream3D-1M Dataset -->
+        <div style="max-width: 85%; margin: 50px auto 0 auto;">
             <div class="sub-section-title" style="margin-bottom: 25px;">Statistics of Stream3D-1M Dataset</div>
             <div style="margin-bottom: 50px; text-align: center;">
                 <img src="./images/s2-dataset_distribution_v2.png" alt="Data Pipeline" style="width: 100%; max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
@@ -435,13 +737,6 @@
 across three key dimensions: <strong>(a) Data Source</strong>, highlighting that ScanNet++ contributes the plurality of QA pairs (43.5%) due to its dense
 annotations; <strong>(b) Task Category</strong>, dominated by Camera Motion tasks (50.1%) which serve as the foundation for spatial tracking; and <strong>(c) Interaction Mode</strong>, demonstrating a strong emphasis on long-term memory (Backward, 46.3%) and active monitoring (Forward, 33.9%).
                 </p>
-            </div>
-
-            <div style="margin-bottom: 50px; text-align: center;">
-                <p style="margin-top: 10px; color: #4b5563; font-size: 0.95em; text-align: center;">
-                    <strong>Detailed statistics of Stream3D-1M Dataset composition.</strong>
-                </p>
-                <img src="./images/table_9_dataset_statistics.png" alt="Data Pipeline" style="width: 45%; max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             </div>
 
             <div class="sub-section-title" style="margin-bottom: 25px;">Statistics of Stream3D-Bench</div>
@@ -456,29 +751,14 @@ annotations; <strong>(b) Task Category</strong>, dominated by Camera Motion task
                     and <strong>(d) Answer Type</strong>, maintaining a uniform distribution among Open-ended, Numerical, and Multiple-choice formats.
                 </p>
             </div>
-
-            <div style="margin-bottom: 50px; text-align: center;">
-                <p style="margin-top: 10px; color: #4b5563; font-size: 0.95em; text-align: center;">
-                    <strong>Detailed statistics of Stream3D-Bench composition.</strong>
-                </p>
-                <img src="./images/table_10_bench_statistics.png" alt="Data Pipeline" style="width: 45%; max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            </div>
-
         </div>
-        
-        <!-- 增加底部间距 -->
-        <div style="margin-bottom: 40px;"></div>
 
-    </section>
-
-    <!-- Demo -->
-    <section id="module-demo" style="margin-top: 60px; margin-bottom: 60px;">
-        <div class="global-section-title" style="margin-bottom: 15px;">Three Temporal Interaction Modes</div>
+        <!-- Three Temporal Interaction Modes (placed second) -->
+        <div id="module-temporal-modes" class="global-section-title" style="margin-bottom: 15px; margin-top: 60px;">Three Temporal Interaction Modes</div>
         <div style="max-width: 75%; margin: 0 auto;">
             <div class="sub-section-title" style="margin-bottom: 15px;">Forward Response (Monitoring)</div>
             <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; background: #000;">
                 <video width="100%" autoplay muted loop playsinline controls style="display: block;">
-                <!-- <video width="100%" autoplay loop playsinline controls style="display: block;"> -->
                     <source src="images/forward_scene0599_02_converted.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -491,7 +771,6 @@ annotations; <strong>(b) Task Category</strong>, dominated by Camera Motion task
             <div class="sub-section-title" style="margin-bottom: 15px;">Realtime Perception (Observation)</div>
             <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; background: #000;">
                 <video width="100%" autoplay muted loop playsinline controls style="display: block;">
-                <!-- <video width="100%" autoplay loop playsinline controls style="display: block;"> -->
                     <source src="images/realtime_scene0200_00_converted.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -504,12 +783,12 @@ annotations; <strong>(b) Task Category</strong>, dominated by Camera Motion task
             <div class="sub-section-title" style="margin-bottom: 15px;">Backward Tracing (Memory)</div>
             <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; background: #000;">
                 <video width="100%" autoplay muted loop playsinline controls style="display: block;">
-                <!-- <video width="100%" autoplay loop playsinline controls style="display: block;"> -->
                     <source src="images/backward_scene0426_00_converted.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
+
     </section>
 
     
@@ -581,6 +860,110 @@ annotations; <strong>(b) Task Category</strong>, dominated by Camera Motion task
         link.addEventListener('click', function() {
             navLinks.forEach(nav => nav.classList.remove('active'));
             this.classList.add('active');
+        });
+    });
+
+    // Taxonomy Tab Logic
+    function switchTaxonomyTab(tab) {
+        // Remove active class from all panels
+        document.querySelectorAll('.taxonomy-panel').forEach(p => p.classList.remove('active'));
+        // Remove active class from all buttons
+        document.querySelectorAll('.taxonomy-tab-btn').forEach(btn => {
+            btn.classList.remove('active-backward', 'active-realtime', 'active-forward');
+        });
+        // Activate selected panel
+        const panel = document.getElementById('panel-' + tab);
+        panel.classList.add('active');
+        // Activate selected button
+        const activeBtn = document.querySelector('.taxonomy-tab-btn[data-tab="' + tab + '"]');
+        activeBtn.classList.add('active-' + tab);
+        // Auto-activate the first subtask button in the newly active panel
+        const firstBtn = panel.querySelector('.subtask-btn');
+        if (firstBtn) {
+            panel.querySelectorAll('.subtask-btn').forEach(b => b.classList.remove('active'));
+            showSubtaskDetail(firstBtn);
+        }
+    }
+
+    // ============================================================
+    // Subtask QA Data (29 subtasks with placeholder content)
+    // ============================================================
+    const TAXONOMY_DATA = {
+        // --- Backward: Ego-Motion (5) ---
+        "backward_ego_direction": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_direction_backward/scene0193_01_2_camera_direction_backward.mp4" } },
+        "backward_ego_path": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_path_backward/scene0169_01_4_camera_path_backward.mp4" } },
+        "backward_ego_rotation": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_rotation_backward/scene0164_01_9_camera_rotation_backward.mp4" } },
+        "backward_ego_displacement": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_displacement_backward/scene0081_02_9_camera_displacement_backward.mp4" } },
+        "backward_ego_comprehensive": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_comprehensive_backward/scene0064_00_3_camera_comprehensive_backward.mp4" } },
+        // --- Backward: Environment Measurement (1) ---
+        "backward_env_room_area": { media: { type: "video", src: "images/demo_homepage_qa_origial/room_area_backward/scene0616_01_0_room_area_backward.mp4" } },
+        // --- Backward: Object-Camera Relationship (3) ---
+        "backward_ocr_distance": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2camera_distance_backward/scene0088_02_3_object2camera_distance_backward.mp4" } },
+        "backward_ocr_direction": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2camera_direction_backward/scene0221_00_3_object2camera_direction_backward.mp4" } },
+        "backward_ocr_location": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2camera_location_backward/scene0488_00_0_object2camera_location_backward.mp4" } },
+        // --- Backward: Object Chronology (3) ---
+        "backward_chrono_counting": { media: { type: "video", src: "images/demo_homepage_qa_origial/object_counting_backward/scene0427_00_3_object_counting_backward.mp4" } },
+        "backward_chrono_time": { media: { type: "video", src: "images/demo_homepage_qa_origial/appearance_time_backward/scene0046_00_4_appearance_time_backward.mp4" } },
+        "backward_chrono_order": { media: { type: "video", src: "images/demo_homepage_qa_origial/appearance_order_backward/scene0217_00_17_appearance_order_backward.mp4" } },
+        // --- Realtime: Environment Measurement (2) ---
+        "realtime_env_object_size": { media: { type: "video", src: "images/demo_homepage_qa_origial/object_size_realtime/9071e139d9_1_object_size_realtime.mp4" } },
+        "realtime_env_inter_object_distance": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2object_distance_realtime/scene0426_00_2_object2object_distance_realtime.mp4" } },
+        // --- Realtime: Object-Camera Relationship (2) ---
+        "realtime_ocr_absolute_distance": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2camera_distance_realtime/scene0496_00_0_object2camera_distance_realtime.mp4" } },
+        "realtime_ocr_relative_distance": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2camera_reldistance_realtime/scene0552_00_0_object2camera_reldistance_realtime.mp4" } },
+        // --- Realtime: Object Attributes (3) ---
+        "realtime_attr_property": { media: { type: "video", src: "images/demo_homepage_qa_origial/object_property_realtime/val-scene0423-22.mp4" } },
+        "realtime_attr_position": { media: { type: "video", src: "images/demo_homepage_qa_origial/object_position_realtime/val-scene0430-9.mp4" } },
+        "realtime_attr_recognition": { media: { type: "video", src: "images/demo_homepage_qa_origial/object_recognition_realtime/val-scene0307-25.mp4" } },
+        // --- Forward: Ego-Motion (5) ---
+        "forward_ego_direction": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_direction_forward/scene0077_01_6_camera_direction_forward.mp4" } },
+        "forward_ego_path": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_path_forward/scene0593_01_11_camera_path_forward.mp4" } },
+        "forward_ego_rotation": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_rotation_forward/scene0474_05_6_camera_rotation_forward.mp4" } },
+        "forward_ego_comprehensive": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_comprehensive_forward/scene0249_00_2_camera_comprehensive_forward.mp4" } },
+        "forward_ego_displacement": { media: { type: "video", src: "images/demo_homepage_qa_origial/camera_displacement_forward/scene0527_00_6_camera_displacement_forward.mp4" } },
+        // --- Forward: Environment Measurement (1) ---
+        "forward_env_room_area": { media: { type: "video", src: "images/demo_homepage_qa_origial/room_area_forward/scene0025_00_0_room_area_forward.mp4" } },
+        // --- Forward: Object-Camera Relationship (4) ---
+        "forward_ocr_distance": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2camera_distance_forward/scene0256_00_1_object2camera_distance_forward.mp4" } },
+        "forward_ocr_location": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2camera_location_forward/scene0187_00_0_object2camera_location_forward.mp4" } },
+        "forward_ocr_direction": { media: { type: "video", src: "images/demo_homepage_qa_origial/object2camera_direction_forward/scene0378_02_0_object2camera_direction_forward.mp4" } },
+        "forward_ocr_finding": { media: { type: "video", src: "images/demo_homepage_qa_origial/object_finding_forward/scene0389_00_9_object_finding_forward.mp4" } }
+    };
+
+    // ============================================================
+    // Subtask Detail Display Logic
+    // ============================================================
+    function showSubtaskDetail(btn) {
+        const key = btn.dataset.subtask;
+        const data = TAXONOMY_DATA[key];
+        if (!data) return;
+
+        // Determine which panel this belongs to
+        const panel = btn.closest('.taxonomy-panel');
+        const panelId = panel.id; // e.g., "panel-backward"
+        const detailId = panelId.replace('panel-', 'detail-'); // e.g., "detail-backward"
+
+        // Remove active state from all buttons in this panel
+        panel.querySelectorAll('.subtask-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Fill media
+        const mediaEl = document.getElementById(detailId + '-media');
+        if (data.media.type === 'video') {
+            mediaEl.innerHTML = '<video src="' + data.media.src + '" autoplay muted loop playsinline controls style="width:100%;display:block;"></video>';
+        } else {
+            mediaEl.innerHTML = '<img src="' + data.media.src + '" alt="' + key + '" onerror="this.parentElement.innerHTML=\'<span class=placeholder-text>Image placeholder: ' + data.media.src + '</span>\'">';
+        }
+
+        // Show detail area
+        document.getElementById(detailId).classList.add('active');
+    }
+
+    // Auto-activate the first subtask button in each panel on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.taxonomy-panel').forEach(panel => {
+            const firstBtn = panel.querySelector('.subtask-btn');
+            if (firstBtn) showSubtaskDetail(firstBtn);
         });
     });
 </script>
